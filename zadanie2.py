@@ -1,5 +1,9 @@
+# функция логарифма
 from math import log
+# точное представление дробных чисел и их округление
 from decimal import Decimal, ROUND_DOWN, ROUND_UP
+
+# Проверка являются ли символы в строке числами
 
 
 def is_number(str):
@@ -8,6 +12,8 @@ def is_number(str):
         return True
     except ValueError:
         return False
+
+# Проверка является ли число дробным или целым
 
 
 def toNumber(str):
@@ -52,8 +58,10 @@ elif (oper == operations[4]):
 elif (oper == operations[5]):
     result += str(log(a, b))
 elif (oper == operations[6]):
+    # округление в большую сторону с большей точностью
     result += str(Decimal(a).quantize(Decimal(f'1.{"0"*b}'), ROUND_UP))
 else:
+    # округление в меньшую сторону с большей точностью
     result += str(Decimal(a).quantize(Decimal(f'1.{"0"*b}'), ROUND_DOWN))
 
 print(result)
